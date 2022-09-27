@@ -9,6 +9,6 @@ const artSchema = new mongoose.Schema({
   soldOut: Boolean,
 });
 
-const Student = mongoose.model("Student", studentSchema);
+const Art = mongoose.model("Art", artSchema);
 
-module.exports = Student;
+module.exports = Art;
