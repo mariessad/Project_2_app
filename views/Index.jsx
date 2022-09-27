@@ -5,7 +5,7 @@ class Index extends React.Component {
     // const { students } = this.props;
     // console.log(students);
     return (
-      <DefaultLayout title={"StudentDashboard"}>
+      <DefaultLayout title={"HomePage"}>
         <nav>
         </nav>
         <ul>

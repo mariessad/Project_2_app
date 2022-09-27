@@ -8,8 +8,8 @@ const mongoose = require("mongoose");
 
 // override setting for CRUD methods
 const methodOverride = require("method-override");
-const Student = require("./models/students");
-const Teacher = require("./models/teachers");
+// const Student = require("./models/students");
+// const Teacher = require("./models/teachers");
 
 // link our ENV variables to our app
 require("dotenv").config();
@@ -72,7 +72,7 @@ app.get('/art', (req,res) =>{
   Art.find({}, (err, allArt) => {
     console.log(err);
 
-    res.render("Cart",{
+    res.render("Art",{
       art: allArt
     })
   })
@@ -92,22 +92,22 @@ app.post("/art", (req, res) => {
   //   req.body.isPassing = false;
   // }
 
-  Item.create(req.body, (err, createdItem) => {
+ Art.create(req.body, (err, createdArt) => {
     console.log(err);
   });
 
   res.redirect("/art");
 });
 
-// Teacher POST
+//  POST
 
 // edit
 app.get("/art/:id/edit", (req, res) => {
-  Item.findById(req.params.id, (err, foundItem) => {
+  Art.findById(req.params.id, (err, foundArt) => {
     console.log(err);
     if (!err) {
       res.render("Edit", {
-        item: foundItem,
+        art: foundArt
         //pass in the foundItem so we can prefill the form
       });
     } else {
@@ -124,7 +124,7 @@ app.put("/art/:id", (req, res) => {
   // } else {
   //   req.body.isPassing = false;
   // }
-  Item.findByIdAndUpdate(req.params.id, req.body, (err, updatedItem) => {
+  Art.findByIdAndUpdate(req.params.id, req.body, (err, updatedArt) => {
     console.log(err);
     res.redirect(`/art/${req.params.id}`);
   });
@@ -132,44 +132,36 @@ app.put("/art/:id", (req, res) => {
 
 // DELETE
 app.delete("/art/:id", (req, res) => {
-  Student.findByIdAndRemove(req.params.id, (err, data) => {
+  Art.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect("/art");
   });
 });
 
 // SEEDS -- a route where we create content dynamically
 
-app.get("/students/seed", (req, res) => {
-  Student.create(
+app.get("/art/seed", (req, res) => {
+  Art.create(
     [
-      { name: "student1", gpa: "2.0", isPassing: false },
-      { name: "student2", gpa: "4.0", isPassing: true },
+      // { name: "student1", gpa: "2.0", isPassing: false },
+      // { name: "student2", gpa: "4.0", isPassing: true },
     ],
     // callback function
     (err, data) => {
-      res.redirect("/students");
+      res.redirect("/art");
     }
   );
 });
 
 // show
-app.get("/students/:id", (req, res) => {
-  Student.findById(req.params.id, (err, foundStudent) => {
+app.get("/art/:id", (req, res) => {
+  Item.findById(req.params.id, (err, foundItem) => {
     console.log(err);
-    res.render("Show", {
-      student: foundStudent,
+    res.render("Art", {
+      item: foundItem,
     });
   });
 });
-// Teacher show
-app.get("/teachers/:id", (req, res) => {
-  Teacher.findById(req.params.id, (err, foundTeacher) => {
-    console.log(err);
-    res.render("Show", {
-      teacher: foundTeacher,
-    });
-  });
-});
+
 
 // Run the server
 app.listen("3000", () => {
