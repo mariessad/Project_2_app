@@ -8,14 +8,17 @@ const mongoose = require("mongoose");
 
 // override setting for CRUD methods
 const methodOverride = require("method-override");
-// const Student = require("./models/students");
-// const Teacher = require("./models/teachers");
+const Art = require("./models/ArtModel");
+const seedArt = require("./models/seedArt");
+// const Jewelry = require("./models/JewelryModel");
+// const Fiber = require("./models/FiberModel");
+// const Cart = require("./models/CartModel");
 
 // link our ENV variables to our app
 require("dotenv").config();
 
 //tells express to try to match requests with files in the directory called 'public'
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // Middlewear
 
@@ -48,39 +51,39 @@ mongoose.connection.once("open", () => {
 
 // index home
 app.get("/home", (req, res) => {
-  // Student.find({}, (err, allStudents) => {
+  // Art.find({}, (err, allArt) => {
   //   console.log(err);
 
-    res.render("Index", {
-      // students: allStudents,
-    });
+  res.render("Index", {
+    // art: allArt,
+  });
   // });
 });
 
 // cart
-app.get('/cart', (req,res) =>{
+app.get("/cart", (req, res) => {
   Items.find({}, (err, allItems) => {
     console.log(err);
 
-    res.render("Cart",{
-      items: allItems
-    })
-  })
-})
+    res.render("Cart", {
+      items: allItems,
+    });
+  });
+});
 // art page
-app.get('/art', (req,res) =>{
+app.get("/art", (req, res) => {
   Art.find({}, (err, allArt) => {
     console.log(err);
 
-    res.render("Art",{
-      art: allArt
-    })
-  })
-})
+    res.render("Art", {
+      art: allArt,
+    });
+  });
+});
 
 // new item
 app.get("art/new", (req, res) => {
-  res.render("New", {});
+  res.render("NewArt", {});
 });
 
 // POST
@@ -92,7 +95,7 @@ app.post("/art", (req, res) => {
   //   req.body.isPassing = false;
   // }
 
- Art.create(req.body, (err, createdArt) => {
+  Art.create(req.body, (err, createdArt) => {
     console.log(err);
   });
 
@@ -107,7 +110,7 @@ app.get("/art/:id/edit", (req, res) => {
     console.log(err);
     if (!err) {
       res.render("Edit", {
-        art: foundArt
+        art: foundArt,
         //pass in the foundItem so we can prefill the form
       });
     } else {
@@ -115,7 +118,6 @@ app.get("/art/:id/edit", (req, res) => {
     }
   });
 });
-
 
 // put patch to update
 app.put("/art/:id", (req, res) => {
@@ -137,31 +139,23 @@ app.delete("/art/:id", (req, res) => {
   });
 });
 
-// SEEDS -- a route where we create content dynamically
+// SEEDS -- routes where we create content dynamically
 
 app.get("/art/seed", (req, res) => {
-  Art.create(
-    [
-      // { name: "student1", gpa: "2.0", isPassing: false },
-      // { name: "student2", gpa: "4.0", isPassing: true },
-    ],
-    // callback function
-    (err, data) => {
-      res.redirect("/art");
-    }
-  );
+  Art.create(seedArt);
+  // callback function
+  res.redirect("/art");
 });
 
 // show
 app.get("/art/:id", (req, res) => {
-  Item.findById(req.params.id, (err, foundItem) => {
+  Art.findById(req.params.id, (err, foundArt) => {
     console.log(err);
     res.render("Art", {
-      item: foundItem,
+      art: foundArt,
     });
   });
 });
-
 
 // Run the server
 app.listen("3000", () => {

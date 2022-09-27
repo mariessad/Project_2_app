@@ -2,21 +2,21 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/default");
 
-class New extends React.Component {
+class NewArt extends React.Component {
   render() {
     return (
-      <DefaultLayout title={"New Item Page"}>
+      <DefaultLayout title={"New Art Item Page"}>
         <div>
           <form action="/art" method="POST">
             Item Name: <input type="text" name="name" />
             <br />
             Price: <input type="text" name="price" />
             <br />
-            Stock: <input type="text" name="stock" />
+            Stock: <input type="checkbox" name="soldOut" />
             <br />
-            Item Image: <input type="text" name="item" />
+            Item Image: <input type="image" name="image"/>
             <br />
-            <input type="submit" name="" value="create item" />
+            <input type="submit" name="" value="Create Art" />
           </form>
         </div>
       </DefaultLayout>
@@ -24,4 +24,4 @@ class New extends React.Component {
   }
 }
 
-module.exports = New;
+module.exports = NewArt;

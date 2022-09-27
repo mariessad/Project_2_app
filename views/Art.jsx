@@ -1,13 +1,21 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/default");
+
 class Art extends React.Component {
   render() {
-    const {item}= this.props;
-      return (
+    const { art } = this.props;
+    return (
       <DefaultLayout title={"Art"}>
-        <div>
-            
-        </div>
+      
+        {art.map((arts, i) => {
+          return (
+            <div key={i}>
+              <p>{arts.title}</p>
+              <p>{arts.price}</p>
+              <img src={`${arts.image}`}></img>
+            </div>
+          );
+        })}
       </DefaultLayout>
     );
   }
