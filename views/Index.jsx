@@ -6,10 +6,9 @@ class Index extends React.Component {
   render() {
     // const { students } = this.props;
     // console.log(students);
-    return (
-        
+    return ( 
       <DefaultLayout title={"HomePage"}>
-       <Navbar/>
+       
       </DefaultLayout>
     );
   }

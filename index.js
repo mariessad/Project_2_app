@@ -10,9 +10,10 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const Art = require("./models/ArtModel");
 const seedArt = require("./models/seedArt");
-// const Jewelry = require("./models/JewelryModel");
-// const Fiber = require("./models/FiberModel");
-// const Cart = require("./models/CartModel");
+const seedJewelry = require("./models/seedJewelry");
+const Jewelry = require("./models/JewelryModel");
+const Fiber = require("./models/FiberModel");
+const Cart = require("./models/CartModel");
 
 // link our ENV variables to our app
 require("dotenv").config();
@@ -47,9 +48,12 @@ mongoose.connect(process.env.MONGO_URI, {
 mongoose.connection.once("open", () => {
   console.log("connected to mongo");
 });
-//Routes (CRUD)
 
-// index home
+//--------------Routes (CRUD)
+
+//--------------GET
+
+// index home page
 app.get("/home", (req, res) => {
   // Art.find({}, (err, allArt) => {
   //   console.log(err);
@@ -60,16 +64,6 @@ app.get("/home", (req, res) => {
   // });
 });
 
-// cart
-app.get("/cart", (req, res) => {
-  Items.find({}, (err, allItems) => {
-    console.log(err);
-
-    res.render("Cart", {
-      items: allItems,
-    });
-  });
-});
 // art page
 app.get("/art", (req, res) => {
   Art.find({}, (err, allArt) => {
@@ -80,13 +74,44 @@ app.get("/art", (req, res) => {
     });
   });
 });
-
-// new item
+// new art item
 app.get("art/new", (req, res) => {
   res.render("NewArt", {});
 });
+// cart page
+app.get("/cart", (req, res) => {
+  Items.find({}, (err, allItems) => {
+    console.log(err);
 
-// POST
+    res.render("Cart", {
+      items: allItems,
+    });
+  });
+});
+
+// fiber art
+app.get("/fiber", (req, res) => {
+  Fiber.find({}, (err, allFiber) => {
+    console.log(err);
+
+    res.render("Fiber", {
+      fiber: allFiber,
+    });
+  });
+});
+// jewelry
+app.get("/jewelry", (req, res) => {
+  Jewelry.find({}, (err, allJewelry) => {
+    console.log(err);
+
+    res.render("Jewelry", {
+      jewelry: allJewelry,
+    });
+  });
+});
+
+//--------------POST
+
 // art post
 app.post("/art", (req, res) => {
   // if (req.body.isPassing === "on") {
@@ -102,14 +127,12 @@ app.post("/art", (req, res) => {
   res.redirect("/art");
 });
 
-//  POST
-
-// edit
+//--------------GET edit
 app.get("/art/:id/edit", (req, res) => {
   Art.findById(req.params.id, (err, foundArt) => {
     console.log(err);
     if (!err) {
-      res.render("Edit", {
+      res.render("ArtEdit", {
         art: foundArt,
         //pass in the foundItem so we can prefill the form
       });
@@ -119,7 +142,7 @@ app.get("/art/:id/edit", (req, res) => {
   });
 });
 
-// put patch to update
+//-------------- PUT patch to update
 app.put("/art/:id", (req, res) => {
   // if (req.body.isPassing === "on") {
   //   req.body.isPassing = true;
@@ -132,7 +155,7 @@ app.put("/art/:id", (req, res) => {
   });
 });
 
-// DELETE
+//-------------- DELETE
 app.delete("/art/:id", (req, res) => {
   Art.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect("/art");
@@ -145,6 +168,11 @@ app.get("/art/seed", (req, res) => {
   Art.create(seedArt);
   // callback function
   res.redirect("/art");
+});
+app.get("/jewelry/seed", (req, res) => {
+  Jewelry.create(seedJewelry);
+  // callback function
+  res.redirect("/jewelry");
 });
 
 // show

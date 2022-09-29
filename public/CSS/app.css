@@ -6,8 +6,9 @@
 nav {
   /* list-style: none; */
   display: flex;
+  /* flex-wrap: nowrap; */
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: rgb(255, 161, 205);
 }
 
@@ -16,7 +17,7 @@ nav > ul {
   justify-content: flex-end;
   margin: 1rem;
   list-style: none;
-  width: 100%;
+  width: 100vw;
 }
 
 .nav-li {
@@ -27,4 +28,10 @@ nav > ul {
   width: 200px;
   height: auto;
   overflow: hidden;
+}
+
+.cart {
+  width: 130px;
+  text-align: end;
+  margin-right: 30px;
 }
