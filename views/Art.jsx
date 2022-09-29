@@ -11,8 +11,9 @@ class Art extends React.Component {
           return (
             <div key={i}>
               <p>{arts.title}</p>
-              <p>{arts.price}</p>
-              <img src={`${arts.image}`}></img>
+              <p>${arts.price}</p>
+              <img className="product-img" src={`${arts.image}`}></img>
+              <button>Add to Cart</button>
             </div>
           );
         })}

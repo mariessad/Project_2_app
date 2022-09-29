@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const artSchema = new mongoose.Schema({
   title: { type: String, required: true },
   price: { type: Number, required: true },
-  image: {data: Buffer,
-    contentType: String},
+  image: {type: String,
+    default:
+      "https://tse2.mm.bing.net/th?id=OIP.U2iQ7wNK6ZzTW_traW_-PQHaHa&pid=Api&P=0"},
   soldOut: Boolean,
 });
 

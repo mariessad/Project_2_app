@@ -6,13 +6,27 @@ class Navbar extends React.Component {
       <>
         <nav>
           <ul>
-            <li>Home</li>
-            <li>Art</li>
-            <li>Fiber Art</li>
-            <li>Jewelry</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>Cart</li>
+            <a href="/home">
+              <li className="nav-li">Home</li>
+            </a>
+            <a href="/art">
+              <li className="nav-li">Art</li>
+            </a>
+            <a href="/fiber">
+              <li className="nav-li">Fiber Art</li>
+            </a>
+            <a href="/jewelry">
+              <li className="nav-li">Jewelry</li>
+            </a>
+            <a href="/about">
+              <li className="nav-li">About</li>
+            </a>
+            <a href="/contact">
+              <li className="nav-li">Contact</li>
+            </a>
+            <a href="/cart">
+              <li className="nav-li cart">Cart</li>
+            </a>
           </ul>
         </nav>
       </>
