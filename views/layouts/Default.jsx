@@ -1,4 +1,5 @@
 const React = require("react");
+import Navbar from "./Navbar";
 
 class DefaultLayout extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class DefaultLayout extends React.Component {
             <link rel="stylesheet" href="/css/app.css" />
           </head>
           <body>
+            <Navbar />
             <h1>{this.props.title}</h1>
             {this.props.children}
           </body>
