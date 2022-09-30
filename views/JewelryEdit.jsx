@@ -1,29 +1,37 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/default");
 
-class ArtEdit extends React.Component {
+class JewelryEdit extends React.Component {
   render() {
     return (
       <DefaultLayout title="Edit Art Page">
-         <form
-          action={`/art/${this.props.art._id}?_method=PUT`}
+        <form
+          action={`/art/${this.props.jewelry._id}?_method=PUT`}
           method="POST"
         >
           Title:{" "}
           <input
             type="text"
             name="name"
-            defaultValue={this.props.art.name}
+            defaultValue={this.props.jewelry.name}
           />
           <br />
           Price:{" "}
-          <input type="text" name="price" defaultValue={this.props.art.price} />
+          <input
+            type="text"
+            name="price"
+            defaultValue={this.props.jewelry.price}
+          />
           <br />
           Image:{" "}
-          <input type="text" name="image" defaultValue={this.props.art.image} />
+          <input
+            type="text"
+            name="image"
+            defaultValue={this.props.jewelry.image}
+          />
           <br />
           Sold Out:
-          {this.props.student.isPassing ? (
+          {this.props.jewelry.soldOut ? (
             <input type="checkbox" name="soldOut" defaultChecked />
           ) : (
             <input type="checkbox" name="soldOut" />
@@ -35,4 +43,4 @@ class ArtEdit extends React.Component {
     );
   }
 }
-module.exports = ArtEdit;
+module.exports = JewelryEdit;

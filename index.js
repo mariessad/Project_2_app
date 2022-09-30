@@ -80,11 +80,11 @@ app.get("art/new", (req, res) => {
 });
 // cart page
 app.get("/cart", (req, res) => {
-  Items.find({}, (err, allItems) => {
+  Cart.find({}, (err, allCart) => {
     console.log(err);
 
     res.render("Cart", {
-      items: allItems,
+      cart: allCart,
     });
   });
 });
@@ -126,6 +126,47 @@ app.post("/art", (req, res) => {
 
   res.redirect("/art");
 });
+app.post("/fiber", (req, res) => {
+  // if (req.body.isPassing === "on") {
+  //   req.body.isPassing = true;
+  // } else {
+  //   req.body.isPassing = false;
+  // }
+
+  Fiber.create(req.body, (err, createdFiber) => {
+    console.log(err);
+  });
+
+  res.redirect("/fiber");
+});
+
+app.post("/jewelry", (req, res) => {
+  // if (req.body.isPassing === "on") {
+  //   req.body.isPassing = true;
+  // } else {
+  //   req.body.isPassing = false;
+  // }
+
+  Jewelry.create(req.body, (err, createdJewelry) => {
+    console.log(err);
+  });
+
+  res.redirect("/jewelry");
+});
+
+app.post("/cart", (req, res) => {
+  // if (req.body.isPassing === "on") {
+  //   req.body.isPassing = true;
+  // } else {
+  //   req.body.isPassing = false;
+  // }
+
+  // Cart.create(req.body, (err, createdCart) => {
+  //   console.log(err);
+  // });
+
+  res.redirect("/cart");
+});
 
 //--------------GET edit
 app.get("/art/:id/edit", (req, res) => {
@@ -134,6 +175,32 @@ app.get("/art/:id/edit", (req, res) => {
     if (!err) {
       res.render("ArtEdit", {
         art: foundArt,
+        //pass in the foundItem so we can prefill the form
+      });
+    } else {
+      res.send({ msg: err.message });
+    }
+  });
+});
+app.get("/fiber/:id/edit", (req, res) => {
+  Fiber.findById(req.params.id, (err, foundFiber) => {
+    console.log(err);
+    if (!err) {
+      res.render("FiberEdit", {
+        fiber: foundFiber,
+        //pass in the foundItem so we can prefill the form
+      });
+    } else {
+      res.send({ msg: err.message });
+    }
+  });
+});
+app.get("/jewelry/:id/edit", (req, res) => {
+  Jewelry.findById(req.params.id, (err, foundJewelry) => {
+    console.log(err);
+    if (!err) {
+      res.render("JewelryEdit", {
+        jewelry: foundJewelry,
         //pass in the foundItem so we can prefill the form
       });
     } else {
