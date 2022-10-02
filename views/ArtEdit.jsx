@@ -5,16 +5,9 @@ class ArtEdit extends React.Component {
   render() {
     return (
       <DefaultLayout title="Edit Art Page">
-         <form
-          action={`/art/${this.props.art._id}?_method=PUT`}
-          method="POST"
-        >
+        <form action={`/art/${this.props.art._id}?_method=PUT`} method="POST">
           Title:{" "}
-          <input
-            type="text"
-            name="name"
-            defaultValue={this.props.art.name}
-          />
+          <input type="text" name="name" defaultValue={this.props.art.name} />
           <br />
           Price:{" "}
           <input type="text" name="price" defaultValue={this.props.art.price} />
@@ -23,7 +16,7 @@ class ArtEdit extends React.Component {
           <input type="text" name="image" defaultValue={this.props.art.image} />
           <br />
           Sold Out:
-          {this.props.student.isPassing ? (
+          {this.props.art.soldOut ? (
             <input type="checkbox" name="soldOut" defaultChecked />
           ) : (
             <input type="checkbox" name="soldOut" />

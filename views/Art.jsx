@@ -6,14 +6,20 @@ class Art extends React.Component {
     const { art } = this.props;
     return (
       <DefaultLayout title={"Art"}>
-      
+        <a href={"/art/new"}>Add New Art listing</a>
         {art.map((arts, i) => {
           return (
-            <div key={i}>
-              <p>{arts.title}</p>
-              <p>${arts.price}</p>
+            <div className="product-container" key={i}>
+              <p className="product-title">{arts.title}</p>
               <img className="product-img" src={`${arts.image}`}></img>
-              <button>Add to Cart</button>
+              <p className="product-price">${arts.price}</p>
+              <button className="add-to-cart">Add to Cart</button>
+              <a href={`art/${arts._id}/edit`}>
+                <button>Edit</button>{" "}
+              </a>
+              <form action={`/art/${arts._id}?_method=DELETE`} method="POST">
+                <input type="submit" value="DELETE" />
+              </form>
             </div>
           );
         })}

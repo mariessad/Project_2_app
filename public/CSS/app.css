@@ -10,6 +10,7 @@ nav {
   width: 100%;
   /* border: 1px solid red; */
   background-color: rgb(255, 161, 205);
+  font-family: "Lobster";
 }
 
 nav > ul {
@@ -24,14 +25,57 @@ nav > ul {
   margin: 1rem;
 }
 
+title {
+  font-family: "Lobster";
+}
+.product-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  border: 2px solid pink;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-family: "roboto";
+}
+
+.product-container > p {
+  text-align: center;
+}
+.product-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: large;
+  font-weight: bold;
+}
+.product-price {
+  margin-top: 1rem;
+}
 .product-img {
   width: 200px;
   height: auto;
   overflow: hidden;
+  margin: auto;
+  border-radius: 0.5rem;
 }
 
 .cart {
   width: 130px;
   text-align: end;
   margin-right: 30px;
+}
+
+.add-to-cart {
+  background-color: pink;
+  width: 80px;
+  height: 40px;
+  border-radius: 0.5rem;
+  border: 1.5px solid palevioletred;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.add-to-cart:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 2px 1px rgba(173, 151, 170, 0.856);
 }

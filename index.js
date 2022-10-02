@@ -221,6 +221,17 @@ app.put("/art/:id", (req, res) => {
     res.redirect(`/art/${req.params.id}`);
   });
 });
+app.put("/jewelry/:id", (req, res) => {
+  // if (req.body.isPassing === "on") {
+  //   req.body.isPassing = true;
+  // } else {
+  //   req.body.isPassing = false;
+  // }
+  Jewelry.findByIdAndUpdate(req.params.id, req.body, (err, updatedJewelry) => {
+    console.log(err);
+    res.redirect(`/jewelry/${req.params.id}`);
+  });
+});
 
 //-------------- DELETE
 app.delete("/art/:id", (req, res) => {
@@ -248,6 +259,14 @@ app.get("/art/:id", (req, res) => {
     console.log(err);
     res.render("Art", {
       art: foundArt,
+    });
+  });
+});
+app.get("/jewelry/:id", (req, res) => {
+  Jewelry.findById(req.params.id, (err, foundJewelry) => {
+    console.log(err);
+    res.render("Jewelry", {
+      jewelry: foundJewelry,
     });
   });
 });

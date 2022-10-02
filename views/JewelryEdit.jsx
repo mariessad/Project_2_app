@@ -4,7 +4,7 @@ const DefaultLayout = require("./layouts/default");
 class JewelryEdit extends React.Component {
   render() {
     return (
-      <DefaultLayout title="Edit Art Page">
+      <DefaultLayout title="Edit Jewelry Page">
         <form
           action={`/art/${this.props.jewelry._id}?_method=PUT`}
           method="POST"

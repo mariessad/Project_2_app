@@ -4,7 +4,7 @@ const DefaultLayout = require("./layouts/default");
 class FiberEdit extends React.Component {
   render() {
     return (
-      <DefaultLayout title="Edit Art Page">
+      <DefaultLayout title="Edit Fiber Art Page">
          <form
           action={`/art/${this.props.fiber._id}?_method=PUT`}
           method="POST"

@@ -1,4 +1,5 @@
 const React = require("react");
+// import shoppingcart from "../../public/img/shopping-cart-3045.png";
 
 class Navbar extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class Navbar extends React.Component {
               <li className="nav-li">Contact</li>
             </a>
             <a href="/cart">
+              <img src={"../../public/img/shopping-cart-3045.png"}></img>
               <li className="nav-li cart">Cart</li>
             </a>
           </ul>
