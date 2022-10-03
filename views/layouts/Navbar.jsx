@@ -6,11 +6,10 @@ class Navbar extends React.Component {
     return (
       <>
         <nav>
-          <img src="../../public/img/heart_eye_tile.png"></img>
+          <a href="/home">
+            <img className="nav-logo" src="/img/heart_eye_tile.png"></img>
+          </a>
           <ul>
-            <a href="/home">
-              <li className="nav-li">Home</li>
-            </a>
             <a href="/art">
               <li className="nav-li">Art</li>
             </a>
@@ -27,8 +26,9 @@ class Navbar extends React.Component {
               <li className="nav-li">Contact</li>
             </a>
             <a href="/cart">
-              <img src={"../../public/img/shopping-cart-3045.png"}></img>
-              <li className="nav-li cart">Cart</li>
+              <li className="nav-li cart">
+                <img src={"/img/shopping-cart-3045.png"}></img>Cart
+              </li>
             </a>
           </ul>
         </nav>

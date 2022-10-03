@@ -9,10 +9,41 @@ class Fiber extends React.Component {
         {fiber.map((fibers, i) => {
           return (
             <div key={i}>
-              <p>{fibers.title}</p>
-              <p>${fibers.price}</p>
+              <p className="product-title">{fibers.title}</p>
               <img className="product-img" src={`${fibers.image}`}></img>
-              <button>Add to Cart</button>
+              <p className="product-price">${fibers.price}</p>
+              <form action={`/cart/?_method=POST`} method="POST">
+                <input
+                  className="display-none"
+                  type="text"
+                  name="title"
+                  defaultValue={fibers.title}
+                />
+                <input
+                  className="display-none"
+                  type="text"
+                  name="price"
+                  defaultValue={fibers.price}
+                />
+                <input
+                  className="display-none"
+                  type="text"
+                  name="image"
+                  defaultValue={fibers.image}
+                />
+
+                <input
+                  className="add-to-cart"
+                  type="submit"
+                  value="Add to Cart"
+                />
+              </form>
+              {/* <button >
+                Add to Cart
+              </button> */}
+              <a href={`art/${arts._id}/edit`}>
+                <button>Edit</button>{" "}
+              </a>
             </div>
           );
         })}

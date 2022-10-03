@@ -22,7 +22,11 @@ class ArtEdit extends React.Component {
             <input type="checkbox" name="soldOut" />
           )}
           <br />
-          <input type="submit" value="Submit Changes" />
+          <input
+            className="submit-changes"
+            type="submit"
+            value="Submit Changes"
+          />
         </form>
       </DefaultLayout>
     );

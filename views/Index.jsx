@@ -8,8 +8,15 @@ class Index extends React.Component {
     // const { students } = this.props;
     // console.log(students);
     return (
-      <DefaultLayout title={"HomePage"}>
-        <img src={"../public/img/heart_icon_gif.gif"} />
+      <DefaultLayout title={"Welcome"}>
+        <img className="heart-gif" src={"/img/heart_icon_gif.gif"} />
+        <div className="">
+          <div className="index-shop">Shop Art</div>
+          <div className="index-shop">Shop Fiber Art</div>
+          <div className="index-shop">Shop Jewelry</div>
+          <div className="index-shop">Shop Jewelry</div>
+          <div className="index-shop">Shop All</div>
+        </div>
       </DefaultLayout>
     );
   }
