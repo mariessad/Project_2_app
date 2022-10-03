@@ -8,9 +8,9 @@ class Cart extends React.Component {
         <div>
           {cart.map((cartItem, i) => {
             return (
-              <li key={i}>
+              <div className="cart-item" key={i}>
                 {/* each cart item */}
-                <a href={`/cart/${cartItem.id}`}> {cartItem.name} </a>
+                <div>{cartItem.title}</div>
                 <img className="product-img" src={cartItem.image} />
                 <br />
                 <p className="product-price">${cartItem.price}</p>
@@ -19,13 +19,17 @@ class Cart extends React.Component {
                   action={`/cart/${cartItem._id}?_method=DELETE`}
                   method="POST"
                 >
-                  <input type="submit" value="DELETE" />
+                  <input
+                    className="remove"
+                    type="submit"
+                    value="remove from cart"
+                  />
                 </form>
-                {/* calculate total + display */}
-              </li>
+              </div>
             );
           })}
-          <button>Checkout & Pay</button>
+          {/* calculate total + display */}
+          <button className="checkout-pay">Checkout & Pay</button>
         </div>
       </DefaultLayout>
     );

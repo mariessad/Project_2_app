@@ -5,22 +5,27 @@ class FiberEdit extends React.Component {
   render() {
     return (
       <DefaultLayout title="Edit Fiber Art Page">
-         <form
-          action={`/art/${this.props.fiber._id}?_method=PUT`}
-          method="POST"
-        >
+        <form action={`/art/${this.props.fiber._id}?_method=PUT`} method="POST">
           Title:{" "}
           <input
             type="text"
-            name="name"
-            defaultValue={this.props.fiber.name}
+            name="title"
+            defaultValue={this.props.fiber.title}
           />
           <br />
           Price:{" "}
-          <input type="text" name="price" defaultValue={this.props.fiber.price} />
+          <input
+            type="text"
+            name="price"
+            defaultValue={this.props.fiber.price}
+          />
           <br />
           Image:{" "}
-          <input type="text" name="image" defaultValue={this.props.fiber.image} />
+          <input
+            type="text"
+            name="image"
+            defaultValue={this.props.fiber.image}
+          />
           <br />
           Sold Out:
           {this.props.fiber.soldOut ? (

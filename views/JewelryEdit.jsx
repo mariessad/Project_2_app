@@ -6,14 +6,14 @@ class JewelryEdit extends React.Component {
     return (
       <DefaultLayout title="Edit Jewelry Page">
         <form
-          action={`/art/${this.props.jewelry._id}?_method=PUT`}
+          action={`/jewelry/${this.props.jewelry._id}?_method=PUT`}
           method="POST"
         >
           Title:{" "}
           <input
             type="text"
-            name="name"
-            defaultValue={this.props.jewelry.name}
+            name="title"
+            defaultValue={this.props.jewelry.title}
           />
           <br />
           Price:{" "}

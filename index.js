@@ -221,14 +221,15 @@ app.put("/art/:id", (req, res) => {
   });
 });
 app.put("/jewelry/:id", (req, res) => {
-  // if (req.body.isPassing === "on") {
-  //   req.body.isPassing = true;
-  // } else {
-  //   req.body.isPassing = false;
-  // }
   Jewelry.findByIdAndUpdate(req.params.id, req.body, (err, updatedJewelry) => {
     console.log(err);
     res.redirect(`/jewelry/${req.params.id}`);
+  });
+});
+app.put("/fiber/:id", (req, res) => {
+  Fiber.findByIdAndUpdate(req.params.id, req.body, (err, updatedFiber) => {
+    console.log(err);
+    res.redirect(`/fiber/${req.params.id}`);
   });
 });
 
@@ -236,6 +237,21 @@ app.put("/jewelry/:id", (req, res) => {
 app.delete("/art/:id", (req, res) => {
   Art.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect("/art");
+  });
+});
+app.delete("/jewelry/:id", (req, res) => {
+  Jewelry.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect("/jewelry");
+  });
+});
+app.delete("/fiber/:id", (req, res) => {
+  Fiber.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect("/fiber");
+  });
+});
+app.delete("/cart/:id", (req, res) => {
+  Cart.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect("/cart");
   });
 });
 

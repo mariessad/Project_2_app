@@ -7,7 +7,7 @@ class ArtEdit extends React.Component {
       <DefaultLayout title="Edit Art Page">
         <form action={`/art/${this.props.art._id}?_method=PUT`} method="POST">
           Title:{" "}
-          <input type="text" name="name" defaultValue={this.props.art.name} />
+          <input type="text" name="title" defaultValue={this.props.art.title} />
           <br />
           Price:{" "}
           <input type="text" name="price" defaultValue={this.props.art.price} />
