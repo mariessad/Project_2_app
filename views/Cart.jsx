@@ -10,7 +10,7 @@ class Cart extends React.Component {
             return (
               <div className="cart-item" key={i}>
                 {/* each cart item */}
-                <div>{cartItem.title}</div>
+                <div className="product-title">{cartItem.title}</div>
                 <img className="product-img" src={cartItem.image} />
                 <br />
                 <p className="product-price">${cartItem.price}</p>
