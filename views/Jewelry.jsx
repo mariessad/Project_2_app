@@ -13,7 +13,7 @@ class Jewelry extends React.Component {
               <p className="product-title">{jewelry.title}</p>
               <img className="product-img" src={`${jewelry.image}`}></img>
               <p className="product-price">${jewelry.price}</p>
-              <button>Add to Cart</button>
+              <button className="add-to-cart">Add to Cart</button>
               <a href={`jewelry/${jewelry._id}/edit`}>
                 <button>Edit</button>{" "}
               </a>

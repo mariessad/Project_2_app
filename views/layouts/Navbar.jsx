@@ -6,6 +6,7 @@ class Navbar extends React.Component {
     return (
       <>
         <nav>
+          <img src="../../public/img/heart_eye_tile.png"></img>
           <ul>
             <a href="/home">
               <li className="nav-li">Home</li>

@@ -160,10 +160,9 @@ app.post("/cart", (req, res) => {
   // } else {
   //   req.body.isPassing = false;
   // }
-
-  // Cart.create(req.body, (err, createdCart) => {
-  //   console.log(err);
-  // });
+  Cart.create(req.body, (err, createdCart) => {
+    console.log(err);
+  });
 
   res.redirect("/cart");
 });
