@@ -6,7 +6,13 @@ class Jewelry extends React.Component {
     const { jewelry } = this.props;
     return (
       <DefaultLayout title={"Jewelry"}>
-        <a href={"/jewelry/new"}>Add New Jewelry listing</a>
+        <div>
+          <a href={"/jewelry/new"}>Add New Jewelry listing</a>
+        </div>
+        {/* <img
+          className="jewelry-img"
+          src="https://mariessa-d.weebly.com/uploads/1/4/0/4/14047316/img-2452_orig.jpg"
+        ></img> */}
         {jewelry.map((jewelry, i) => {
           return (
             <div className="product-container" key={i}>

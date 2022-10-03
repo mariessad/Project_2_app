@@ -5,7 +5,10 @@ class FiberEdit extends React.Component {
   render() {
     return (
       <DefaultLayout title="Edit Fiber Art Page">
-        <form action={`/art/${this.props.fiber._id}?_method=PUT`} method="POST">
+        <form
+          action={`/fiber/${this.props.fiber._id}?_method=PUT`}
+          method="POST"
+        >
           Title:{" "}
           <input
             type="text"

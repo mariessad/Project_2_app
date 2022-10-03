@@ -20,7 +20,12 @@ nav > ul {
   list-style: none;
   width: 100vw;
 }
-
+/* a {
+  color: none;
+}
+nav > ul:hover {
+  color: white;
+} */
 .nav-li {
   margin: 1rem;
 }
@@ -108,6 +113,14 @@ title {
   text-decoration: underline;
   cursor: pointer;
   color: rgb(104, 62, 105);
+}
+
+/* jewelry pg */
+.jewelry-img {
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: auto;
 }
 /* form styling */
 

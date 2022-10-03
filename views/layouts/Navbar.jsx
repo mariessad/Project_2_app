@@ -14,7 +14,7 @@ class Navbar extends React.Component {
               <li className="nav-li">Art</li>
             </a>
             <a href="/fiber">
-              <li className="nav-li">Fiber Art</li>
+              <li className="nav-li">Fiber</li>
             </a>
             <a href="/jewelry">
               <li className="nav-li">Jewelry</li>
@@ -24,6 +24,9 @@ class Navbar extends React.Component {
             </a>
             <a href="/contact">
               <li className="nav-li">Contact</li>
+            </a>
+            <a href="/admin">
+              <li className="nav-li">Admin</li>
             </a>
             <a href="/cart">
               <li className="nav-li cart">

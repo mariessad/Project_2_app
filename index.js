@@ -11,6 +11,7 @@ const methodOverride = require("method-override");
 const Art = require("./models/ArtModel");
 const seedArt = require("./models/seedArt");
 const seedJewelry = require("./models/seedJewelry");
+const seedFiber = require("./models/seedFiber");
 const Jewelry = require("./models/JewelryModel");
 const Fiber = require("./models/FiberModel");
 const Cart = require("./models/CartModel");
@@ -75,7 +76,7 @@ app.get("/art", (req, res) => {
   });
 });
 // new art item
-app.get("art/new", (req, res) => {
+app.get("/art/new", (req, res) => {
   res.render("NewArt", {});
 });
 // cart page
@@ -99,6 +100,10 @@ app.get("/fiber", (req, res) => {
     });
   });
 });
+// new fiber item
+app.get("/fiber/new", (req, res) => {
+  res.render("NewFiber", {});
+});
 // jewelry
 app.get("/jewelry", (req, res) => {
   Jewelry.find({}, (err, allJewelry) => {
@@ -107,6 +112,35 @@ app.get("/jewelry", (req, res) => {
     res.render("Jewelry", {
       jewelry: allJewelry,
     });
+  });
+});
+// new jewelry item
+app.get("/jewelry/new", (req, res) => {
+  res.render("NewJewelry", {});
+});
+
+app.get("/about", (req, res) => {
+  // Jewelry.find({}, (err, allJewelry) => {
+  //   console.log(err);
+
+  res.render("About", {
+    // jewelry: allJewelry,
+  });
+});
+app.get("/contact", (req, res) => {
+  // Jewelry.find({}, (err, allJewelry) => {
+  //   console.log(err);
+
+  res.render("Contact", {
+    // jewelry: allJewelry,
+  });
+});
+app.get("/admin", (req, res) => {
+  // Jewelry.find({}, (err, allJewelry) => {
+  //   console.log(err);
+
+  res.render("Admin", {
+    // jewelry: allJewelry,
   });
 });
 
@@ -267,6 +301,11 @@ app.get("/jewelry/seed", (req, res) => {
   // callback function
   res.redirect("/jewelry");
 });
+app.get("/fiber/seed", (req, res) => {
+  Fiber.create(seedFiber);
+  // callback function
+  res.redirect("/fiber");
+});
 
 // show
 app.get("/art/:id", (req, res) => {
@@ -282,6 +321,14 @@ app.get("/jewelry/:id", (req, res) => {
     console.log(err);
     res.render("Jewelry", {
       jewelry: foundJewelry,
+    });
+  });
+});
+app.get("/fiber/:id", (req, res) => {
+  Fiber.findById(req.params.id, (err, foundFiber) => {
+    console.log(err);
+    res.render("Fiber", {
+      fiber: foundFiber,
     });
   });
 });

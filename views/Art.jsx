@@ -7,6 +7,10 @@ class Art extends React.Component {
     return (
       <DefaultLayout title={"Art"}>
         <a href={"/art/new"}>Add New Art listing</a>
+        {/* <img
+          className="jewelry-img"
+          src="https://mariessa-d.weebly.com/uploads/1/4/0/4/14047316/img-0557_orig.jpg"
+        ></img> */}
         {art.map((arts, i) => {
           return (
             <div className="product-container" key={i}>
@@ -45,6 +49,9 @@ class Art extends React.Component {
               <a href={`art/${arts._id}/edit`}>
                 <button>Edit</button>{" "}
               </a>
+              <form action={`/art/${arts._id}?_method=DELETE`} method="POST">
+                <input type="submit" value="DELETE" />
+              </form>
             </div>
           );
         })}

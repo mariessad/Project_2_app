@@ -6,9 +6,12 @@ class Fiber extends React.Component {
     const { fiber } = this.props;
     return (
       <DefaultLayout title={"Fiber Art"}>
+        <div>
+          <a href={"/fiber/new"}>Add New Fiber Art listing</a>
+        </div>
         {fiber.map((fibers, i) => {
           return (
-            <div key={i}>
+            <div className="product-container" key={i}>
               <p className="product-title">{fibers.title}</p>
               <img className="product-img" src={`${fibers.image}`}></img>
               <p className="product-price">${fibers.price}</p>
@@ -41,9 +44,15 @@ class Fiber extends React.Component {
               {/* <button >
                 Add to Cart
               </button> */}
-              <a href={`art/${arts._id}/edit`}>
+              <a href={`art/${fibers._id}/edit`}>
                 <button>Edit</button>{" "}
               </a>
+              <form
+                action={`/fiber/${fibers._id}?_method=DELETE`}
+                method="POST"
+              >
+                <input type="submit" value="DELETE" />
+              </form>
             </div>
           );
         })}

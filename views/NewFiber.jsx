@@ -2,12 +2,12 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/default");
 
-class NewArt extends React.Component {
+class NewFiber extends React.Component {
   render() {
     return (
-      <DefaultLayout title={"New Art Item Page"}>
+      <DefaultLayout title={"New Fiber Item Page"}>
         <div>
-          <form action="/art" method="POST">
+          <form action="/fiber" method="POST">
             Item title: <input type="text" name="title" />
             <br />
             Price: <input type="text" name="price" />
@@ -24,4 +24,4 @@ class NewArt extends React.Component {
   }
 }
 
-module.exports = NewArt;
+module.exports = NewFiber;
